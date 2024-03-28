@@ -6,6 +6,7 @@ let swaves =[]
 let bx1
 let bx2
 let bx3
+let bx4
 let cnv
 
 function preload(){
@@ -15,6 +16,7 @@ function preload(){
     boats[1]= loadImage("b2.png")
     boats[2]= loadImage("b3.png")
     boats[3]= loadImage("b4.png")
+    boats[4] = loadImage("db.png")
 }
 
 // g1x: 0-100,
@@ -53,10 +55,12 @@ function setup() {
         wy=wy+170
     }
     bx1= random(-500,-300)
+    bx4 = random(-500,-300)
     bx2= width+random(300,500)
     bx3= width+random(300,500)
     boats[0].resize(300,0)
     boats[2].resize(250,0)
+    boats[4].resize(200,0)
 
   }
   
@@ -83,15 +87,19 @@ function setup() {
     if (bx2<-boats[0].width) bx2= width+random(300,900)
     bx3=bx3-1
     if (bx3<-boats[3].width) bx3= width+random(300,900)
+    bx4=bx4+1
+    if (bx4>width+boats[4].width) bx4= random(-300,-900)
 
 
 
     // show boats
+    image(boats[4],bx4, boats[4].height/2-10) //right going
     image(boats[0],bx2,(boats[2].height/2)+50)
-    image(boats[3],bx3,height/3+(boats[2].height/2)+30)
+    image(boats[3],bx3,height/3+(boats[3].height/2)+30)
     
-
+     // right going boats
     image(boats[2],bx1, height-boats[2].height/2)
+    
     
 
  
