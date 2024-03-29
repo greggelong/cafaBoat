@@ -7,9 +7,13 @@ let bx1
 let bx2
 let bx3
 let bx4
-let cnv
+let cnv 
+let wSound
+let playing = false
+let lasttouch =0;
 
 function preload(){
+    wSound = loadSound("waves.mp3")
     waves[0]= loadImage("w1.png")
     //waves[1]= loadImage("w2.png")
     boats[0]= loadImage("b1.png")
@@ -61,7 +65,34 @@ function setup() {
     boats[0].resize(300,0)
     boats[2].resize(250,0)
     boats[4].resize(200,0)
+    
 
+  }
+
+  function touchStarted() {
+    // for Ios
+    // calculate time since last touch
+    const currenttime = millis();
+    const timesincelasttouch = currenttime - lasttouch;
+  
+    print(playing);
+    if (timesincelasttouch > 500) {
+      if (!playing) {
+        wSound.play(); // hiss when you start
+        wSound.loop(); // keep playing hair dryer
+        playing = true;
+      } else if (playing) {
+        wSound.stop();
+        
+        playing = false;
+      }
+      // update
+      lasttouch = currenttime;
+    }
+  }
+  
+  function mousePressed() {
+    touchStarted();
   }
   
   function draw() {
