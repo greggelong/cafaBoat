@@ -43,10 +43,12 @@ function preload(){
 
 
 function setup() {
+    
     cnv = createCanvas(760, 760); //(gridSize * cellSize + 10, gridSize * cellSize + 10);
     let cx = windowWidth / 2 - cnv.width / 2;
     let cy = windowHeight / 2 - cnv.width / 2;
     cnv.position(cx, cy);
+    createP("Tap or Click for Sound!")
     waves[0].resize(1000,0)
     print(waves[0].height)
     //frameRate(5)

@@ -1,9 +1,13 @@
-html, body {
+body{
+    padding: 0%;
     margin: 0;
-    padding: 0;
+    color: black;
+    background-color: powderblue;
     font-size: large;
+    text-align: center;
+    font-family: monospace; 
   }
-  canvas {
-    display: block;
+
+  pre{
+    font-family: monospace; 
   }
-  
